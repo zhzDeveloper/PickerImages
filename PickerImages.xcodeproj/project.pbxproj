@@ -7,15 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346BDA4CCC351D9EB79BD11C /* libPods-PickerImages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D28C68A9845587506E859B9 /* libPods-PickerImages.a */; };
 		9DBAE8F31DC2EC19001A966D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE8F21DC2EC19001A966D /* main.m */; };
 		9DBAE8F61DC2EC19001A966D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE8F51DC2EC19001A966D /* AppDelegate.m */; };
 		9DBAE8F91DC2EC19001A966D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE8F81DC2EC19001A966D /* ViewController.m */; };
 		9DBAE8FC1DC2EC19001A966D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE8FA1DC2EC19001A966D /* Main.storyboard */; };
 		9DBAE8FE1DC2EC19001A966D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE8FD1DC2EC19001A966D /* Assets.xcassets */; };
 		9DBAE9011DC2EC19001A966D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE8FF1DC2EC19001A966D /* LaunchScreen.storyboard */; };
+		9DBAE9321DC2EC3B001A966D /* YppAssetCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE90B1DC2EC3B001A966D /* YppAssetCollectionListViewController.m */; };
+		9DBAE9331DC2EC3B001A966D /* YppAssetNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE90D1DC2EC3B001A966D /* YppAssetNavigationController.m */; };
+		9DBAE9341DC2EC3B001A966D /* YppAssetPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE90F1DC2EC3B001A966D /* YppAssetPickerViewController.m */; };
+		9DBAE9351DC2EC3B001A966D /* YppAssetPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9111DC2EC3B001A966D /* YppAssetPreviewViewController.m */; };
+		9DBAE9361DC2EC3B001A966D /* YppAssetVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9131DC2EC3B001A966D /* YppAssetVideoPreviewViewController.m */; };
+		9DBAE9371DC2EC3B001A966D /* YppImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9151DC2EC3B001A966D /* YppImageCropViewController.m */; };
+		9DBAE9381DC2EC3B001A966D /* YppImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9171DC2EC3B001A966D /* YppImageManager.m */; };
+		9DBAE9391DC2EC3B001A966D /* YppPreviewAfterCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9191DC2EC3B001A966D /* YppPreviewAfterCropViewController.m */; };
+		9DBAE93A1DC2EC3B001A966D /* YppAssetCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE91C1DC2EC3B001A966D /* YppAssetCollectionViewModel.m */; };
+		9DBAE93B1DC2EC3B001A966D /* YppAssetViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE91E1DC2EC3B001A966D /* YppAssetViewModel.m */; };
+		9DBAE93C1DC2EC3B001A966D /* AssetsPickerChecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE9201DC2EC3B001A966D /* AssetsPickerChecked@2x.png */; };
+		9DBAE93D1DC2EC3B001A966D /* AssetsPickerUnChecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE9211DC2EC3B001A966D /* AssetsPickerUnChecked@2x.png */; };
+		9DBAE93E1DC2EC3B001A966D /* image_preview_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE9221DC2EC3B001A966D /* image_preview_back@2x.png */; };
+		9DBAE93F1DC2EC3B001A966D /* navBarBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE9231DC2EC3B001A966D /* navBarBack@2x.png */; };
+		9DBAE9401DC2EC3B001A966D /* navBarBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAE9241DC2EC3B001A966D /* navBarBack@3x.png */; };
+		9DBAE9411DC2EC3B001A966D /* YppAssetCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9271DC2EC3B001A966D /* YppAssetCollectionTableViewCell.m */; };
+		9DBAE9421DC2EC3B001A966D /* YppAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9291DC2EC3B001A966D /* YppAssetCollectionViewCell.m */; };
+		9DBAE9431DC2EC3B001A966D /* YppAssetPreViewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE92B1DC2EC3B001A966D /* YppAssetPreViewCollectionCell.m */; };
+		9DBAE9441DC2EC3B001A966D /* YppCustomBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE92D1DC2EC3B001A966D /* YppCustomBottomView.m */; };
+		9DBAE9451DC2EC3B001A966D /* YppCustomTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE92F1DC2EC3B001A966D /* YppCustomTopView.m */; };
+		9DBAE9461DC2EC3B001A966D /* YppPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE9311DC2EC3B001A966D /* YppPhotoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02F7753F39651FC19BEE8796 /* Pods-PickerImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerImages.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerImages/Pods-PickerImages.debug.xcconfig"; sourceTree = "<group>"; };
+		4D28C68A9845587506E859B9 /* libPods-PickerImages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PickerImages.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBAE8EE1DC2EC19001A966D /* PickerImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickerImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBAE8F21DC2EC19001A966D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DBAE8F41DC2EC19001A966D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +50,44 @@
 		9DBAE8FD1DC2EC19001A966D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DBAE9001DC2EC19001A966D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DBAE9021DC2EC19001A966D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DBAE90A1DC2EC3B001A966D /* YppAssetCollectionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetCollectionListViewController.h; sourceTree = "<group>"; };
+		9DBAE90B1DC2EC3B001A966D /* YppAssetCollectionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetCollectionListViewController.m; sourceTree = "<group>"; };
+		9DBAE90C1DC2EC3B001A966D /* YppAssetNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetNavigationController.h; sourceTree = "<group>"; };
+		9DBAE90D1DC2EC3B001A966D /* YppAssetNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetNavigationController.m; sourceTree = "<group>"; };
+		9DBAE90E1DC2EC3B001A966D /* YppAssetPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetPickerViewController.h; sourceTree = "<group>"; };
+		9DBAE90F1DC2EC3B001A966D /* YppAssetPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetPickerViewController.m; sourceTree = "<group>"; };
+		9DBAE9101DC2EC3B001A966D /* YppAssetPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetPreviewViewController.h; sourceTree = "<group>"; };
+		9DBAE9111DC2EC3B001A966D /* YppAssetPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetPreviewViewController.m; sourceTree = "<group>"; };
+		9DBAE9121DC2EC3B001A966D /* YppAssetVideoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetVideoPreviewViewController.h; sourceTree = "<group>"; };
+		9DBAE9131DC2EC3B001A966D /* YppAssetVideoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetVideoPreviewViewController.m; sourceTree = "<group>"; };
+		9DBAE9141DC2EC3B001A966D /* YppImageCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppImageCropViewController.h; sourceTree = "<group>"; };
+		9DBAE9151DC2EC3B001A966D /* YppImageCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppImageCropViewController.m; sourceTree = "<group>"; };
+		9DBAE9161DC2EC3B001A966D /* YppImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppImageManager.h; sourceTree = "<group>"; };
+		9DBAE9171DC2EC3B001A966D /* YppImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppImageManager.m; sourceTree = "<group>"; };
+		9DBAE9181DC2EC3B001A966D /* YppPreviewAfterCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppPreviewAfterCropViewController.h; sourceTree = "<group>"; };
+		9DBAE9191DC2EC3B001A966D /* YppPreviewAfterCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppPreviewAfterCropViewController.m; sourceTree = "<group>"; };
+		9DBAE91B1DC2EC3B001A966D /* YppAssetCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetCollectionViewModel.h; sourceTree = "<group>"; };
+		9DBAE91C1DC2EC3B001A966D /* YppAssetCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetCollectionViewModel.m; sourceTree = "<group>"; };
+		9DBAE91D1DC2EC3B001A966D /* YppAssetViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetViewModel.h; sourceTree = "<group>"; };
+		9DBAE91E1DC2EC3B001A966D /* YppAssetViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetViewModel.m; sourceTree = "<group>"; };
+		9DBAE9201DC2EC3B001A966D /* AssetsPickerChecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AssetsPickerChecked@2x.png"; sourceTree = "<group>"; };
+		9DBAE9211DC2EC3B001A966D /* AssetsPickerUnChecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AssetsPickerUnChecked@2x.png"; sourceTree = "<group>"; };
+		9DBAE9221DC2EC3B001A966D /* image_preview_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_preview_back@2x.png"; sourceTree = "<group>"; };
+		9DBAE9231DC2EC3B001A966D /* navBarBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBarBack@2x.png"; sourceTree = "<group>"; };
+		9DBAE9241DC2EC3B001A966D /* navBarBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBarBack@3x.png"; sourceTree = "<group>"; };
+		9DBAE9261DC2EC3B001A966D /* YppAssetCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetCollectionTableViewCell.h; sourceTree = "<group>"; };
+		9DBAE9271DC2EC3B001A966D /* YppAssetCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetCollectionTableViewCell.m; sourceTree = "<group>"; };
+		9DBAE9281DC2EC3B001A966D /* YppAssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetCollectionViewCell.h; sourceTree = "<group>"; };
+		9DBAE9291DC2EC3B001A966D /* YppAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetCollectionViewCell.m; sourceTree = "<group>"; };
+		9DBAE92A1DC2EC3B001A966D /* YppAssetPreViewCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppAssetPreViewCollectionCell.h; sourceTree = "<group>"; };
+		9DBAE92B1DC2EC3B001A966D /* YppAssetPreViewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppAssetPreViewCollectionCell.m; sourceTree = "<group>"; };
+		9DBAE92C1DC2EC3B001A966D /* YppCustomBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppCustomBottomView.h; sourceTree = "<group>"; };
+		9DBAE92D1DC2EC3B001A966D /* YppCustomBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppCustomBottomView.m; sourceTree = "<group>"; };
+		9DBAE92E1DC2EC3B001A966D /* YppCustomTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppCustomTopView.h; sourceTree = "<group>"; };
+		9DBAE92F1DC2EC3B001A966D /* YppCustomTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppCustomTopView.m; sourceTree = "<group>"; };
+		9DBAE9301DC2EC3B001A966D /* YppPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YppPhotoView.h; sourceTree = "<group>"; };
+		9DBAE9311DC2EC3B001A966D /* YppPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YppPhotoView.m; sourceTree = "<group>"; };
+		F8851264305AA856D4D96504 /* Pods-PickerImages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerImages.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerImages/Pods-PickerImages.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +95,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346BDA4CCC351D9EB79BD11C /* libPods-PickerImages.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CE6DE6BE601DFD43B341B23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02F7753F39651FC19BEE8796 /* Pods-PickerImages.debug.xcconfig */,
+				F8851264305AA856D4D96504 /* Pods-PickerImages.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9DBAE8E51DC2EC19001A966D = {
 			isa = PBXGroup;
 			children = (
+				9DBAE9081DC2EC3B001A966D /* YppAssetPickerImages */,
 				9DBAE8F01DC2EC19001A966D /* PickerImages */,
 				9DBAE8EF1DC2EC19001A966D /* Products */,
+				7CE6DE6BE601DFD43B341B23 /* Pods */,
+				F35CFC6FB83E3A9E26441CCA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +154,90 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9DBAE9081DC2EC3B001A966D /* YppAssetPickerImages */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAE9091DC2EC3B001A966D /* Controller */,
+				9DBAE91A1DC2EC3B001A966D /* Model */,
+				9DBAE91F1DC2EC3B001A966D /* Resources */,
+				9DBAE9251DC2EC3B001A966D /* View */,
+			);
+			path = YppAssetPickerImages;
+			sourceTree = "<group>";
+		};
+		9DBAE9091DC2EC3B001A966D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAE90A1DC2EC3B001A966D /* YppAssetCollectionListViewController.h */,
+				9DBAE90B1DC2EC3B001A966D /* YppAssetCollectionListViewController.m */,
+				9DBAE90C1DC2EC3B001A966D /* YppAssetNavigationController.h */,
+				9DBAE90D1DC2EC3B001A966D /* YppAssetNavigationController.m */,
+				9DBAE90E1DC2EC3B001A966D /* YppAssetPickerViewController.h */,
+				9DBAE90F1DC2EC3B001A966D /* YppAssetPickerViewController.m */,
+				9DBAE9101DC2EC3B001A966D /* YppAssetPreviewViewController.h */,
+				9DBAE9111DC2EC3B001A966D /* YppAssetPreviewViewController.m */,
+				9DBAE9121DC2EC3B001A966D /* YppAssetVideoPreviewViewController.h */,
+				9DBAE9131DC2EC3B001A966D /* YppAssetVideoPreviewViewController.m */,
+				9DBAE9141DC2EC3B001A966D /* YppImageCropViewController.h */,
+				9DBAE9151DC2EC3B001A966D /* YppImageCropViewController.m */,
+				9DBAE9161DC2EC3B001A966D /* YppImageManager.h */,
+				9DBAE9171DC2EC3B001A966D /* YppImageManager.m */,
+				9DBAE9181DC2EC3B001A966D /* YppPreviewAfterCropViewController.h */,
+				9DBAE9191DC2EC3B001A966D /* YppPreviewAfterCropViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DBAE91A1DC2EC3B001A966D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAE91B1DC2EC3B001A966D /* YppAssetCollectionViewModel.h */,
+				9DBAE91C1DC2EC3B001A966D /* YppAssetCollectionViewModel.m */,
+				9DBAE91D1DC2EC3B001A966D /* YppAssetViewModel.h */,
+				9DBAE91E1DC2EC3B001A966D /* YppAssetViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DBAE91F1DC2EC3B001A966D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAE9201DC2EC3B001A966D /* AssetsPickerChecked@2x.png */,
+				9DBAE9211DC2EC3B001A966D /* AssetsPickerUnChecked@2x.png */,
+				9DBAE9221DC2EC3B001A966D /* image_preview_back@2x.png */,
+				9DBAE9231DC2EC3B001A966D /* navBarBack@2x.png */,
+				9DBAE9241DC2EC3B001A966D /* navBarBack@3x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9DBAE9251DC2EC3B001A966D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DBAE9261DC2EC3B001A966D /* YppAssetCollectionTableViewCell.h */,
+				9DBAE9271DC2EC3B001A966D /* YppAssetCollectionTableViewCell.m */,
+				9DBAE9281DC2EC3B001A966D /* YppAssetCollectionViewCell.h */,
+				9DBAE9291DC2EC3B001A966D /* YppAssetCollectionViewCell.m */,
+				9DBAE92A1DC2EC3B001A966D /* YppAssetPreViewCollectionCell.h */,
+				9DBAE92B1DC2EC3B001A966D /* YppAssetPreViewCollectionCell.m */,
+				9DBAE92C1DC2EC3B001A966D /* YppCustomBottomView.h */,
+				9DBAE92D1DC2EC3B001A966D /* YppCustomBottomView.m */,
+				9DBAE92E1DC2EC3B001A966D /* YppCustomTopView.h */,
+				9DBAE92F1DC2EC3B001A966D /* YppCustomTopView.m */,
+				9DBAE9301DC2EC3B001A966D /* YppPhotoView.h */,
+				9DBAE9311DC2EC3B001A966D /* YppPhotoView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F35CFC6FB83E3A9E26441CCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D28C68A9845587506E859B9 /* libPods-PickerImages.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +245,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DBAE9051DC2EC19001A966D /* Build configuration list for PBXNativeTarget "PickerImages" */;
 			buildPhases = (
+				6E8B10B575E27DD2537A3660 /* [CP] Check Pods Manifest.lock */,
 				9DBAE8EA1DC2EC19001A966D /* Sources */,
 				9DBAE8EB1DC2EC19001A966D /* Frameworks */,
 				9DBAE8EC1DC2EC19001A966D /* Resources */,
+				9588590795D43EAB78400BD2 /* [CP] Embed Pods Frameworks */,
+				1C96B893D510F05BB1D95301 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,22 +300,91 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBAE93E1DC2EC3B001A966D /* image_preview_back@2x.png in Resources */,
 				9DBAE9011DC2EC19001A966D /* LaunchScreen.storyboard in Resources */,
+				9DBAE9401DC2EC3B001A966D /* navBarBack@3x.png in Resources */,
+				9DBAE93D1DC2EC3B001A966D /* AssetsPickerUnChecked@2x.png in Resources */,
 				9DBAE8FE1DC2EC19001A966D /* Assets.xcassets in Resources */,
 				9DBAE8FC1DC2EC19001A966D /* Main.storyboard in Resources */,
+				9DBAE93C1DC2EC3B001A966D /* AssetsPickerChecked@2x.png in Resources */,
+				9DBAE93F1DC2EC3B001A966D /* navBarBack@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C96B893D510F05BB1D95301 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerImages/Pods-PickerImages-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E8B10B575E27DD2537A3660 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9588590795D43EAB78400BD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerImages/Pods-PickerImages-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9DBAE8EA1DC2EC19001A966D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBAE9361DC2EC3B001A966D /* YppAssetVideoPreviewViewController.m in Sources */,
+				9DBAE9431DC2EC3B001A966D /* YppAssetPreViewCollectionCell.m in Sources */,
 				9DBAE8F91DC2EC19001A966D /* ViewController.m in Sources */,
+				9DBAE9371DC2EC3B001A966D /* YppImageCropViewController.m in Sources */,
+				9DBAE93B1DC2EC3B001A966D /* YppAssetViewModel.m in Sources */,
+				9DBAE9341DC2EC3B001A966D /* YppAssetPickerViewController.m in Sources */,
+				9DBAE9321DC2EC3B001A966D /* YppAssetCollectionListViewController.m in Sources */,
 				9DBAE8F61DC2EC19001A966D /* AppDelegate.m in Sources */,
+				9DBAE9351DC2EC3B001A966D /* YppAssetPreviewViewController.m in Sources */,
+				9DBAE9441DC2EC3B001A966D /* YppCustomBottomView.m in Sources */,
+				9DBAE9331DC2EC3B001A966D /* YppAssetNavigationController.m in Sources */,
+				9DBAE9451DC2EC3B001A966D /* YppCustomTopView.m in Sources */,
 				9DBAE8F31DC2EC19001A966D /* main.m in Sources */,
+				9DBAE9461DC2EC3B001A966D /* YppPhotoView.m in Sources */,
+				9DBAE9421DC2EC3B001A966D /* YppAssetCollectionViewCell.m in Sources */,
+				9DBAE9411DC2EC3B001A966D /* YppAssetCollectionTableViewCell.m in Sources */,
+				9DBAE93A1DC2EC3B001A966D /* YppAssetCollectionViewModel.m in Sources */,
+				9DBAE9391DC2EC3B001A966D /* YppPreviewAfterCropViewController.m in Sources */,
+				9DBAE9381DC2EC3B001A966D /* YppImageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +502,7 @@
 		};
 		9DBAE9061DC2EC19001A966D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02F7753F39651FC19BEE8796 /* Pods-PickerImages.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A3D99DT85D;
@@ -283,6 +515,7 @@
 		};
 		9DBAE9071DC2EC19001A966D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8851264305AA856D4D96504 /* Pods-PickerImages.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A3D99DT85D;
@@ -312,6 +545,7 @@
 				9DBAE9071DC2EC19001A966D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
