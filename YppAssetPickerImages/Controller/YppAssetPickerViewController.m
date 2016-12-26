@@ -16,16 +16,18 @@
 #import "YppCustomBottomView.h"
 #import "TOCropViewController.h"
 #import "PhotoPreviewViewController.h"
-#import "CreateFeedViewController.h"
 #import "YppImageCropViewController.h"
 #import "YppPreviewAfterCropViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
-#import <YppVendorStaticLibrary/UIViewController+CurrentViewController.h>
+#import "UIViewController+CurrentViewController.h"
 #import "YppAssetVideoPreviewViewController.h"
 #import "UIImage+Compress.h"
 #import "YppIMService.h"
 #import "YppImageManager.h"
+#import <Masonry.h>
+#import "ZPickerUtility.h"
+#import "ZPickerHeader.h"
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -138,7 +140,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 
 - (void)getAllAlbums {
     dispatch_sync(dispatch_get_main_queue(), ^{
-        [YppLifeUtility showHudWithTextInView:self.view animate:YES text:@""];
+        [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@""];
     });
 
     //  获取"相机胶卷"的所有照片/视频
@@ -153,59 +155,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 }
 
 - (void)checkIMServiceMediaBizType {
-    YppIMService *imMService = [YppIMService sharedInstance];
-    NSString *tipSting = nil;
-    switch (imMService.yppMediaBizType) {
-        case YppMediaBizTypeNetCallController:
-        case YppMediaBizTypeVideoCallController:
-        case YppMediaBizTypeLiveShowController:
-        case YppMediaBizTypeAudioShowController:
-            break;
-        case YppMediaBizTypeNetCallBubble: {
-            [YppLifeUtility showTextHudInView:self.view
-                                      animate:YES
-                                         text:@"请先关闭语音通话"
-                                     duration:kYppShowHudDuration];
-            return;
-        }
-        case YppMediaBizTypeVideoCallBubble: {
-            [YppLifeUtility showTextHudInView:self.view
-                                      animate:YES
-                                         text:@"请先关闭视频通话"
-                                     duration:kYppShowHudDuration];
-            return;
-        }
-        case YppMediaBizTypeLiveShowBubble: {
-            [YppLifeUtility showTextHudInView:self.view
-                                      animate:YES
-                                         text:@"请先关闭直播"
-                                     duration:kYppShowHudDuration];
-            return;
-        }
-        case YppMediaBizTypeNone:
-            break;
-        case YppMediaBizTypeAudioShowBubble: {
-            tipSting = @"您正在使用聊天室，是否关闭聊天室？";
-        }
-            break;
-    }
-
-    if (tipSting.length) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:tipSting
-                                                                                 message:nil
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"关闭" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [[YppIMService sharedInstance] stopAudioShowRoom];
-            [self showCamera];
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:NULL];
-        [alertController addAction:cancelAction];
-        [alertController addAction:alertAction];
-        [[UIViewController currentViewController] presentViewController:alertController animated:YES completion:NULL];
-        return;
-    }
     [self showCamera];
-
 }
 
 - (void)showCamera {

@@ -10,6 +10,7 @@
 #import "YppAssetViewModel.h"
 #import "YppPhotoView.h"
 #import "YppImageManager.h"
+#import <Masonry.h>
 
 @interface YppAssetPreViewCollectionCell ()<YppPhotoViewDelegate>
 

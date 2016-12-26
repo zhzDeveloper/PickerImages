@@ -7,6 +7,7 @@
 //
 
 #import "YppAssetVideoPreviewViewController.h"
+#import <Masonry.h>
 
 @interface YppAssetVideoPreviewViewController ()
 
@@ -160,7 +161,7 @@
 	if (!_submitButton){
         
         UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [submitButton.titleLabel setFont:YPP_FONT(14.0f)];
+        [submitButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [submitButton setTitle:@"确定" forState:UIControlStateNormal];
         [submitButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [submitButton addTarget:self action:@selector(submitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -174,7 +175,7 @@
 {
     if (!_cancelButton){
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_cancelButton.titleLabel setFont:YPP_FONT(14.0f)];
+        [_cancelButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -186,7 +187,7 @@
 {
     if (!_playOrPauseButton){
         _playOrPauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_playOrPauseButton.titleLabel setFont:YPP_FONT(14.0f)];
+        [_playOrPauseButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
         _playOrPauseButton.selected = YES;
         [_playOrPauseButton setImage:[UIImage imageNamed:@"record_audio_stop"] forState:UIControlStateNormal];
         [_playOrPauseButton setImage:[UIImage imageNamed:@"record_audio_play"] forState:UIControlStateSelected];

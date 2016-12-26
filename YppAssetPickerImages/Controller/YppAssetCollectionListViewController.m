@@ -13,6 +13,9 @@
 #import "YppAssetCollectionTableViewCell.h"
 #import "YppAssetPickerViewController.h"
 #import "YppImageManager.h"
+#import "ZPickerUtility.h"
+#import <Photos/PhotosDefines.h>
+#import <MBProgressHUD.h>
 
 static NSString *reuseIdentifier = @"cellReuseIdentifier";
 
@@ -39,7 +42,7 @@ static NSString *reuseIdentifier = @"cellReuseIdentifier";
 #pragma mark - Private
 - (void)getAssetCollectlist
 {
-    [YppLifeUtility showHudWithTextInView:self.view animate:YES text:@""];
+    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@""];
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [[YppImageManager manager] getAblumListWithImagesType:PHAssetMediaTypeImage completion:^(NSArray<YppAssetCollectionViewModel *> *assetCollectArray) {

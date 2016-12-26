@@ -7,6 +7,9 @@
 //
 
 #import "YppImageCropViewController.h"
+#import "ZPickerHeader.h"
+#import "UIColor+Hex.h"
+#import <Masonry.h>
 
 #define SCALE_FRAME_Y 100.0f
 #define BOUNDCE_DURATION 0.3f
@@ -114,8 +117,8 @@
     [self.view addSubview:bottomView];
 	UIButton *cancelBtn = [[UIButton alloc] init];
     [cancelBtn setTitleColor:[UIColor colorWithHexString:@"9b9b9b"] forState:UIControlStateNormal];
-	[cancelBtn setTitle:NSLocalizedString(@"Delete", nil) forState:UIControlStateNormal];
-	[cancelBtn.titleLabel setFont:YPP_FONT(16.0f)];
+	[cancelBtn setTitle:@"删除" forState:UIControlStateNormal];
+	[cancelBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
 	[cancelBtn addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
 	[bottomView addSubview:cancelBtn];
     [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -125,9 +128,9 @@
     
     
 	UIButton *confirmBtn = [[UIButton alloc] init];
-    [confirmBtn setTitleColor:YPPBlue forState:UIControlStateNormal];
-    [confirmBtn setTitle:self.confimString?:NSLocalizedString(@"Clipping", nil) forState:UIControlStateNormal];
-	[confirmBtn.titleLabel setFont:YPP_FONT(16.0f)];
+    [confirmBtn setTitleColor:[UIColor colorWithRed:29.0f/255.0f green:154.0f/255.0f blue:255.0f/255.0f alpha:1] forState:UIControlStateNormal];
+    [confirmBtn setTitle:self.confimString?:@"裁剪" forState:UIControlStateNormal];
+	[confirmBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
 	[confirmBtn.titleLabel setTextAlignment:NSTextAlignmentCenter];
 	[confirmBtn addTarget:self action:@selector(confirm:) forControlEvents:UIControlEventTouchUpInside];
 	[bottomView addSubview:confirmBtn];

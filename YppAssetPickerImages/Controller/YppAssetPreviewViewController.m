@@ -14,7 +14,6 @@
 #import "YppAssetNavigationController.h"
 #import "YppImageCropViewController.h"
 #import "YppPreviewAfterCropViewController.h"
-#import "CreateFeedViewController.h"
 #import "YppImageManager.h"
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)

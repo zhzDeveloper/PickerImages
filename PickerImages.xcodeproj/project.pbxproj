@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		346BDA4CCC351D9EB79BD11C /* libPods-PickerImages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D28C68A9845587506E859B9 /* libPods-PickerImages.a */; };
+		9D0119001E0CAF7F00BD2B0D /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0118FF1E0CAF7F00BD2B0D /* UIColor+Hex.m */; };
+		9D0119041E0CB14000BD2B0D /* ZPickerUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0119031E0CB14000BD2B0D /* ZPickerUtility.m */; };
+		9D01191E1E0CB27600BD2B0D /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D0119061E0CB27600BD2B0D /* TOCropViewControllerLocalizable.strings */; };
+		9D01191F1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01190B1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.m */; };
+		9D0119201E0CB27600BD2B0D /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01190D1E0CB27600BD2B0D /* TOCroppedImageAttributes.m */; };
+		9D0119211E0CB27600BD2B0D /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01190F1E0CB27600BD2B0D /* TOCropViewControllerTransitioning.m */; };
+		9D0119221E0CB27600BD2B0D /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0119111E0CB27600BD2B0D /* UIImage+CropRotate.m */; };
+		9D0119231E0CB27600BD2B0D /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0119131E0CB27600BD2B0D /* TOCropViewController.m */; };
+		9D0119241E0CB27600BD2B0D /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0119161E0CB27600BD2B0D /* TOCropOverlayView.m */; };
+		9D0119251E0CB27600BD2B0D /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0119181E0CB27600BD2B0D /* TOCropScrollView.m */; };
+		9D0119261E0CB27600BD2B0D /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01191A1E0CB27600BD2B0D /* TOCropToolbar.m */; };
+		9D0119271E0CB27600BD2B0D /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01191C1E0CB27600BD2B0D /* TOCropView.m */; };
+		9D01192B1E0CB36D00BD2B0D /* PhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01192A1E0CB36D00BD2B0D /* PhotoPreviewViewController.m */; };
+		9D01192E1E0CB42800BD2B0D /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D01192D1E0CB42800BD2B0D /* UIViewController+CurrentViewController.m */; };
 		9DBAE8F31DC2EC19001A966D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE8F21DC2EC19001A966D /* main.m */; };
 		9DBAE8F61DC2EC19001A966D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE8F51DC2EC19001A966D /* AppDelegate.m */; };
 		9DBAE8F91DC2EC19001A966D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAE8F81DC2EC19001A966D /* ViewController.m */; };
@@ -40,6 +54,36 @@
 /* Begin PBXFileReference section */
 		02F7753F39651FC19BEE8796 /* Pods-PickerImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerImages.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerImages/Pods-PickerImages.debug.xcconfig"; sourceTree = "<group>"; };
 		4D28C68A9845587506E859B9 /* libPods-PickerImages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PickerImages.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0118FC1E0CAED300BD2B0D /* ZPickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPickerHeader.h; sourceTree = "<group>"; };
+		9D0118FE1E0CAF7F00BD2B0D /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		9D0118FF1E0CAF7F00BD2B0D /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		9D0119021E0CB14000BD2B0D /* ZPickerUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPickerUtility.h; sourceTree = "<group>"; };
+		9D0119031E0CB14000BD2B0D /* ZPickerUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPickerUtility.m; sourceTree = "<group>"; };
+		9D0119071E0CB27600BD2B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		9D0119081E0CB27600BD2B0D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		9D01190A1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		9D01190B1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		9D01190C1E0CB27600BD2B0D /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		9D01190D1E0CB27600BD2B0D /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		9D01190E1E0CB27600BD2B0D /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		9D01190F1E0CB27600BD2B0D /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		9D0119101E0CB27600BD2B0D /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		9D0119111E0CB27600BD2B0D /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		9D0119121E0CB27600BD2B0D /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
+		9D0119131E0CB27600BD2B0D /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
+		9D0119151E0CB27600BD2B0D /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		9D0119161E0CB27600BD2B0D /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		9D0119171E0CB27600BD2B0D /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		9D0119181E0CB27600BD2B0D /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		9D0119191E0CB27600BD2B0D /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		9D01191A1E0CB27600BD2B0D /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		9D01191B1E0CB27600BD2B0D /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		9D01191C1E0CB27600BD2B0D /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		9D01191D1E0CB27600BD2B0D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		9D0119291E0CB36D00BD2B0D /* PhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPreviewViewController.h; sourceTree = "<group>"; };
+		9D01192A1E0CB36D00BD2B0D /* PhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreviewViewController.m; sourceTree = "<group>"; };
+		9D01192C1E0CB42800BD2B0D /* UIViewController+CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CurrentViewController.h"; sourceTree = "<group>"; };
+		9D01192D1E0CB42800BD2B0D /* UIViewController+CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CurrentViewController.m"; sourceTree = "<group>"; };
 		9DBAE8EE1DC2EC19001A966D /* PickerImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickerImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBAE8F21DC2EC19001A966D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DBAE8F41DC2EC19001A966D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,6 +155,87 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9D0118FB1E0CAEB000BD2B0D /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				9D0119011E0CB12600BD2B0D /* Singleton */,
+				9D0118FD1E0CAF4900BD2B0D /* Category */,
+				9D0118FC1E0CAED300BD2B0D /* ZPickerHeader.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		9D0118FD1E0CAF4900BD2B0D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9D0118FE1E0CAF7F00BD2B0D /* UIColor+Hex.h */,
+				9D0118FF1E0CAF7F00BD2B0D /* UIColor+Hex.m */,
+				9D01192C1E0CB42800BD2B0D /* UIViewController+CurrentViewController.h */,
+				9D01192D1E0CB42800BD2B0D /* UIViewController+CurrentViewController.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		9D0119011E0CB12600BD2B0D /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				9D0119021E0CB14000BD2B0D /* ZPickerUtility.h */,
+				9D0119031E0CB14000BD2B0D /* ZPickerUtility.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		9D0119051E0CB27600BD2B0D /* TOCropViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D0119061E0CB27600BD2B0D /* TOCropViewControllerLocalizable.strings */,
+				9D0119091E0CB27600BD2B0D /* Models */,
+				9D0119121E0CB27600BD2B0D /* TOCropViewController.h */,
+				9D0119131E0CB27600BD2B0D /* TOCropViewController.m */,
+				9D0119141E0CB27600BD2B0D /* Views */,
+			);
+			path = TOCropViewController;
+			sourceTree = "<group>";
+		};
+		9D0119091E0CB27600BD2B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D01190A1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.h */,
+				9D01190B1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.m */,
+				9D01190C1E0CB27600BD2B0D /* TOCroppedImageAttributes.h */,
+				9D01190D1E0CB27600BD2B0D /* TOCroppedImageAttributes.m */,
+				9D01190E1E0CB27600BD2B0D /* TOCropViewControllerTransitioning.h */,
+				9D01190F1E0CB27600BD2B0D /* TOCropViewControllerTransitioning.m */,
+				9D0119101E0CB27600BD2B0D /* UIImage+CropRotate.h */,
+				9D0119111E0CB27600BD2B0D /* UIImage+CropRotate.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D0119141E0CB27600BD2B0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D0119151E0CB27600BD2B0D /* TOCropOverlayView.h */,
+				9D0119161E0CB27600BD2B0D /* TOCropOverlayView.m */,
+				9D0119171E0CB27600BD2B0D /* TOCropScrollView.h */,
+				9D0119181E0CB27600BD2B0D /* TOCropScrollView.m */,
+				9D0119191E0CB27600BD2B0D /* TOCropToolbar.h */,
+				9D01191A1E0CB27600BD2B0D /* TOCropToolbar.m */,
+				9D01191B1E0CB27600BD2B0D /* TOCropView.h */,
+				9D01191C1E0CB27600BD2B0D /* TOCropView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9D0119281E0CB36D00BD2B0D /* PhotoPreviewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D0119291E0CB36D00BD2B0D /* PhotoPreviewViewController.h */,
+				9D01192A1E0CB36D00BD2B0D /* PhotoPreviewViewController.m */,
+			);
+			path = PhotoPreviewViewController;
+			sourceTree = "<group>";
+		};
 		9DBAE8E51DC2EC19001A966D = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +282,7 @@
 		9DBAE9081DC2EC3B001A966D /* YppAssetPickerImages */ = {
 			isa = PBXGroup;
 			children = (
+				9D0118FB1E0CAEB000BD2B0D /* Public */,
 				9DBAE9091DC2EC3B001A966D /* Controller */,
 				9DBAE91A1DC2EC3B001A966D /* Model */,
 				9DBAE91F1DC2EC3B001A966D /* Resources */,
@@ -168,6 +294,8 @@
 		9DBAE9091DC2EC3B001A966D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9D0119281E0CB36D00BD2B0D /* PhotoPreviewViewController */,
+				9D0119051E0CB27600BD2B0D /* TOCropViewController */,
 				9DBAE90A1DC2EC3B001A966D /* YppAssetCollectionListViewController.h */,
 				9DBAE90B1DC2EC3B001A966D /* YppAssetCollectionListViewController.m */,
 				9DBAE90C1DC2EC3B001A966D /* YppAssetNavigationController.h */,
@@ -284,6 +412,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9DBAE8E51DC2EC19001A966D;
 			productRefGroup = 9DBAE8EF1DC2EC19001A966D /* Products */;
@@ -306,6 +435,7 @@
 				9DBAE93D1DC2EC3B001A966D /* AssetsPickerUnChecked@2x.png in Resources */,
 				9DBAE8FE1DC2EC19001A966D /* Assets.xcassets in Resources */,
 				9DBAE8FC1DC2EC19001A966D /* Main.storyboard in Resources */,
+				9D01191E1E0CB27600BD2B0D /* TOCropViewControllerLocalizable.strings in Resources */,
 				9DBAE93C1DC2EC3B001A966D /* AssetsPickerChecked@2x.png in Resources */,
 				9DBAE93F1DC2EC3B001A966D /* navBarBack@2x.png in Resources */,
 			);
@@ -367,30 +497,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DBAE9361DC2EC3B001A966D /* YppAssetVideoPreviewViewController.m in Sources */,
+				9D0119001E0CAF7F00BD2B0D /* UIColor+Hex.m in Sources */,
 				9DBAE9431DC2EC3B001A966D /* YppAssetPreViewCollectionCell.m in Sources */,
+				9D01192B1E0CB36D00BD2B0D /* PhotoPreviewViewController.m in Sources */,
 				9DBAE8F91DC2EC19001A966D /* ViewController.m in Sources */,
 				9DBAE9371DC2EC3B001A966D /* YppImageCropViewController.m in Sources */,
 				9DBAE93B1DC2EC3B001A966D /* YppAssetViewModel.m in Sources */,
 				9DBAE9341DC2EC3B001A966D /* YppAssetPickerViewController.m in Sources */,
+				9D0119041E0CB14000BD2B0D /* ZPickerUtility.m in Sources */,
 				9DBAE9321DC2EC3B001A966D /* YppAssetCollectionListViewController.m in Sources */,
 				9DBAE8F61DC2EC19001A966D /* AppDelegate.m in Sources */,
+				9D0119221E0CB27600BD2B0D /* UIImage+CropRotate.m in Sources */,
+				9D0119261E0CB27600BD2B0D /* TOCropToolbar.m in Sources */,
+				9D01192E1E0CB42800BD2B0D /* UIViewController+CurrentViewController.m in Sources */,
+				9D0119241E0CB27600BD2B0D /* TOCropOverlayView.m in Sources */,
 				9DBAE9351DC2EC3B001A966D /* YppAssetPreviewViewController.m in Sources */,
 				9DBAE9441DC2EC3B001A966D /* YppCustomBottomView.m in Sources */,
 				9DBAE9331DC2EC3B001A966D /* YppAssetNavigationController.m in Sources */,
 				9DBAE9451DC2EC3B001A966D /* YppCustomTopView.m in Sources */,
+				9D0119231E0CB27600BD2B0D /* TOCropViewController.m in Sources */,
 				9DBAE8F31DC2EC19001A966D /* main.m in Sources */,
+				9D0119251E0CB27600BD2B0D /* TOCropScrollView.m in Sources */,
 				9DBAE9461DC2EC3B001A966D /* YppPhotoView.m in Sources */,
+				9D0119271E0CB27600BD2B0D /* TOCropView.m in Sources */,
 				9DBAE9421DC2EC3B001A966D /* YppAssetCollectionViewCell.m in Sources */,
 				9DBAE9411DC2EC3B001A966D /* YppAssetCollectionTableViewCell.m in Sources */,
+				9D01191F1E0CB27600BD2B0D /* TOActivityCroppedImageProvider.m in Sources */,
 				9DBAE93A1DC2EC3B001A966D /* YppAssetCollectionViewModel.m in Sources */,
 				9DBAE9391DC2EC3B001A966D /* YppPreviewAfterCropViewController.m in Sources */,
+				9D0119211E0CB27600BD2B0D /* TOCropViewControllerTransitioning.m in Sources */,
 				9DBAE9381DC2EC3B001A966D /* YppImageManager.m in Sources */,
+				9D0119201E0CB27600BD2B0D /* TOCroppedImageAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		9D0119061E0CB27600BD2B0D /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D0119071E0CB27600BD2B0D /* Base */,
+				9D0119081E0CB27600BD2B0D /* en */,
+				9D01191D1E0CB27600BD2B0D /* zh-Hans */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		9DBAE8FA1DC2EC19001A966D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
