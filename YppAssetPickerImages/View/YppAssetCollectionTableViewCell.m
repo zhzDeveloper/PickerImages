@@ -10,6 +10,7 @@
 #import "YppAssetCollectionViewModel.h"
 #import "YppAssetViewModel.h"
 #import "YppImageManager.h"
+#import <Masonry.h>
 
 static CGFloat const padding = 10.0f;
 @interface YppAssetCollectionTableViewCell ()
@@ -87,7 +88,7 @@ static CGFloat const padding = 10.0f;
 {
     if (!_titleLabel){
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = YPP_FONT_BOLD(16.0f);
+        _titleLabel.font = [UIFont boldSystemFontOfSize:16];
         [_titleLabel sizeToFit];
         _titleLabel.textColor = [UIColor blackColor];
     }
@@ -98,7 +99,7 @@ static CGFloat const padding = 10.0f;
 {
     if (!_countLabel){
         _countLabel = [[UILabel alloc] init];
-        _countLabel.font = YPP_FONT_BOLD(16.0f);
+        _countLabel.font = [UIFont boldSystemFontOfSize:16];
         _countLabel.textColor = [UIColor grayColor];
     }
     return _countLabel;

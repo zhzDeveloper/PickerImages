@@ -6,10 +6,12 @@
 //  Copyright © 2016 WYWK. All rights reserved.
 //
 
-#import <YppVendorStaticLibrary/UIViewController+CurrentViewController.h>
 #import "YppImageManager.h"
 #import "YppAssetCollectionViewModel.h"
 #import "YppAssetViewModel.h"
+#import "UIViewController+CurrentViewController.h"
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 @interface YppImageManager ()
 

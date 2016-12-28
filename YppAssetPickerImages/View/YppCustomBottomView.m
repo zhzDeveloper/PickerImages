@@ -7,6 +7,9 @@
 //
 
 #import "YppCustomBottomView.h"
+#import <Masonry.h>
+#import "ZPickerHeader.h"
+#import "UIColor+Hex.h"
 
 @interface YppCustomBottomView ()
 
@@ -135,7 +138,7 @@
         _orignImageLabel = [[UILabel alloc] init];
         _orignImageLabel.backgroundColor = [UIColor clearColor];
         _orignImageLabel.text = NSLocalizedString(@"Original image", @"原图");
-        _orignImageLabel.font = YPP_FONT(14.0f);
+        _orignImageLabel.font = [UIFont systemFontOfSize:15];
         _orignImageLabel.textColor = [UIColor colorWithHexString:@"C6C6C6"];
 	}
 	return _orignImageLabel;
@@ -146,13 +149,13 @@
 	if (!_preViewButton){
         _preViewButton = [[UIButton alloc] init];
         [_preViewButton setTitle:@"预览" forState:UIControlStateNormal];
-        _preViewButton.titleLabel.font = YPP_FONT(14.0f);
+        _preViewButton.titleLabel.font = [UIFont systemFontOfSize:14];
         _preViewButton.enabled = NO;
         _preViewButton.layer.cornerRadius = 4.0f;
         _preViewButton.layer.masksToBounds = YES;
         _preViewButton.backgroundColor = [UIColor whiteColor];
         _preViewButton.layer.borderWidth = 0.5f;
-        _preViewButton.layer.borderColor =  COLOR_TITLE_TEXT.CGColor;
+        _preViewButton.layer.borderColor = [UIColor grayColor].CGColor;
         [_preViewButton setTitleColor:[UIColor colorWithHexString:@"4a4a4a"] forState:UIControlStateNormal];
         [_preViewButton setTitleColor:[UIColor colorWithHexString:@"c6c6c6"] forState:UIControlStateDisabled];
         [_preViewButton addTarget:self action:@selector(preViewButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -167,9 +170,9 @@
         _sendButton.layer.cornerRadius = 3;
         _sendButton.layer.masksToBounds = YES;
         [_sendButton setTitle:@"确定" forState:UIControlStateNormal];
-        _sendButton.titleLabel.font = YPP_FONT(14.0f);
+        _sendButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_sendButton setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:UIControlStateNormal];
-        [_sendButton setBackgroundColor:YPPBlue];
+        [_sendButton setBackgroundColor:[UIColor blueColor]];
         [_sendButton addTarget:self action:@selector(sendButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
 	return _sendButton;

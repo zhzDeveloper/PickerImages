@@ -7,9 +7,9 @@
 //
 
 #import "YppPreviewAfterCropViewController.h"
-#import "CreateFeedViewController.h"
 #import "YppPhotoView.h"
 #import "YppAssetNavigationController.h"
+#import "UIColor+Hex.h"
 
 @interface YppPreviewAfterCropViewController ()<YppPhotoViewDelegate>
 
@@ -52,12 +52,7 @@
 
 - (void)deleteChooseImage {
     
-    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:nil];
-    [createFeed setDone:^
-     {
-         [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
-     }];
-    [self.navigationController pushViewController:createFeed animated:YES];
+   
 }
 
 - (void)setupUI

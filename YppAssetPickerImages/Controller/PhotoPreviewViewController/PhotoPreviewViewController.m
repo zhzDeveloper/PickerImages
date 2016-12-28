@@ -64,23 +64,23 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //发动态界面点击已选择图片进入
-    if (self.comeFromUpdateFeedImage) {
-        self.navigationItem.leftBarButtonItem = [YppLifeUtility getLeftUIBarBtnItemWithTarget:self withSEL:@selector(confirmButtonAction:)];
-        self.navigationItem.rightBarButtonItem = [YppLifeUtility getTextItemWithTarget:NSLocalizedString(@"Delete", nil) forTarget:self withSEL:@selector(deleteChooseImage)];
-    }
-    else {
-        self.navigationItem.leftBarButtonItem = [YppLifeUtility getLeftUIBarBtnItemWithTarget:self withSEL:@selector(popupMyself)];
-    }
+//    if (self.comeFromUpdateFeedImage) {
+//        self.navigationItem.leftBarButtonItem = [YppLifeUtility getLeftUIBarBtnItemWithTarget:self withSEL:@selector(confirmButtonAction:)];
+//        self.navigationItem.rightBarButtonItem = [YppLifeUtility getTextItemWithTarget:NSLocalizedString(@"Delete", nil) forTarget:self withSEL:@selector(deleteChooseImage)];
+//    }
+//    else {
+//        self.navigationItem.leftBarButtonItem = [YppLifeUtility getLeftUIBarBtnItemWithTarget:self withSEL:@selector(popupMyself)];
+//    }
 }
 
 - (void)deleteChooseImage {
     
-    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:nil];
-    [createFeed setDone:^
-     {
-         [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
-     }];
-    [self.navigationController pushViewController:createFeed animated:YES];
+//    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:nil];
+//    [createFeed setDone:^
+//     {
+//         [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
+//     }];
+//    [self.navigationController pushViewController:createFeed animated:YES];
 }
 
 - (void)popupMyself {
@@ -127,7 +127,7 @@
     if(!_bottomView)
     {
         _bottomView= [[UIView alloc] initWithFrame:CGRectZero];
-        [_bottomView setBackgroundColor:COLOR_VIEW_BACKGROUND];
+        [_bottomView setBackgroundColor:[UIColor redColor]];
     }
     return _bottomView;
 }
@@ -137,10 +137,10 @@
     if(!_confirmButton)
     {
         _confirmButton= [[UIButton alloc] initWithFrame:CGRectZero];
-        [_confirmButton setTitleColor:YPPBlue forState:UIControlStateNormal];
+        [_confirmButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [_confirmButton setTitle:NSLocalizedString(@"Confirm",@"Confirm") forState:UIControlStateNormal];
         [_confirmButton addTarget:self action:@selector(confirmButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        _confirmButton.titleLabel.font = [YppLifeUtility getFontForDeviceSize];
+        _confirmButton.titleLabel.font = [UIFont systemFontOfSize:15];
     }
     return _confirmButton;
 }

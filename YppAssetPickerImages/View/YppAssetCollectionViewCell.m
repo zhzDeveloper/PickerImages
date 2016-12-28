@@ -9,6 +9,7 @@
 #import "YppAssetCollectionViewCell.h"
 #import "YppAssetViewModel.h"
 #import "YppImageManager.h"
+#import <Masonry.h>
 
 @interface YppAssetCollectionViewCell ()
 
@@ -152,7 +153,7 @@
 {
 	if (!_timeLabel){
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = YPP_FONT(11.0f);
+        _timeLabel.font = [UIFont systemFontOfSize:11];
         _timeLabel.textColor = [UIColor whiteColor];
 	}
 	return _timeLabel;

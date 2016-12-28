@@ -15,6 +15,9 @@
 #import "YppImageCropViewController.h"
 #import "YppPreviewAfterCropViewController.h"
 #import "YppImageManager.h"
+#import <Masonry.h>
+#import "UIColor+Hex.h"
+#import "ZPickerUtility.h"
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -75,25 +78,34 @@ static NSString *const cellID = @"cellPre";
         self.navigationController.navigationBar.hidden = YES;
     }
     
+    UIImage *image = [UIImage imageNamed:@"navi_back.png"];
+    CGRect frameimg = CGRectMake(0, 0, 50, image.size.height);
+    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
+    [someButton setImage:image forState:UIControlStateNormal];
+    [someButton setImageEdgeInsets:UIEdgeInsetsMake(0, -22, 0, 22)];
+    [someButton addTarget:self action:@selector(finishPickingAssetsForPreview:) forControlEvents:UIControlEventTouchUpInside];
+    someButton.accessibilityHint = @"UIBarButtonItem_Left";
+    [someButton setShowsTouchWhenHighlighted:NO];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:someButton];
     //发动态界面点击已选择图片进入
-    if (self.comeFromUpdateFeedImage)
-    {
-        self.navigationItem.leftBarButtonItem = [YppLifeUtility getLeftUIBarBtnItemWithTarget:self withSEL:@selector(finishPickingAssetsForPreview:)];
-        self.navigationItem.rightBarButtonItem = [YppLifeUtility getTextItemWithTarget:NSLocalizedString(@"Delete", nil) forTarget:self withSEL:@selector(deleteChooseImage)];
-        if ([self.bottomView superview])
-        {
+    if (self.comeFromUpdateFeedImage) {
+        [someButton addTarget:self action:@selector(finishPickingAssetsForPreview:) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(deleteChooseImage)];
+        
+        if ([self.bottomView superview]) {
             [self.bottomView removeFromSuperview];
         }
         self.collectionView.scrollEnabled = NO;
-    }
-    else
-    {
+    } else {
         self.title = NSLocalizedString(@"Preview", nil);
-        self.navigationItem.leftBarButtonItem = [YppLifeUtility getLeftUIBarBtnItemWithTarget:self withSEL:@selector(popupMyself)];
+        [someButton addTarget:self action:@selector(finishPickingAssetsForPreview:) forControlEvents:UIControlEventTouchUpInside];
+
+        self.navigationItem.leftBarButtonItem = barItem;
         if (self.assetNavigationController.assetPickerType == YAssetPickerType_SingleImageChoose) {
             [self addButtomBar];
         }
     }
+    self.navigationItem.leftBarButtonItem = barItem;
 
     YppAssetViewModel *assetViewModel = self.dataSource[self.offsetIndexPath.row];
     [[PHImageManager defaultManager] requestImageDataForAsset:assetViewModel.asset
@@ -207,7 +219,6 @@ static NSString *const cellID = @"cellPre";
 
 - (void)finishPickingAssetsForPreview:(UIButton *)sendBtn
 {
-    [YppLifeUtility mobClickEvent:@"quedingzhaopian"];
 
     NSUInteger index = (NSUInteger) (self.collectionView.contentOffset.x / SCREEN_WIDTH);
     YppAssetViewModel *assetViewModel = self.dataSource[index];
@@ -218,7 +229,7 @@ static NSString *const cellID = @"cellPre";
             if (isInCloud)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [YppLifeUtility showDetailTextHudInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试" duration:kYppShowHudDuration];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
                     return;
                 });
             }
@@ -250,11 +261,11 @@ static NSString *const cellID = @"cellPre";
         if (isInCloud)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [YppLifeUtility showDetailTextHudInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试" duration:kYppShowHudDuration];
+                [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
             });
         }
         else {
-            YppImageCropViewController *imageCrop = [[YppImageCropViewController alloc] initWithImage:result cropFrame:CGRectMake(0, 100, MainWidth, self.assetNavigationController.isApplyAptitude?197:MainWidth) limitScaleRatio:3.0];
+            YppImageCropViewController *imageCrop = [[YppImageCropViewController alloc] initWithImage:result cropFrame:CGRectMake(0, 100, SCREEN_WIDTH, self.assetNavigationController.isApplyAptitude?197:SCREEN_WIDTH) limitScaleRatio:3.0];
             [self.navigationController pushViewController:imageCrop animated:YES];
 
             [imageCrop setConfirmBlock:^(UIImage *cropImage) {
@@ -270,12 +281,12 @@ static NSString *const cellID = @"cellPre";
 
 - (void)deleteChooseImage {
     
-    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:nil];
-    [createFeed setDone:^
-     {
-         [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
-     }];
-    [self.navigationController pushViewController:createFeed animated:YES];
+//    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:nil];
+//    [createFeed setDone:^
+//     {
+//         [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
+//     }];
+//    [self.navigationController pushViewController:createFeed animated:YES];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -361,7 +372,7 @@ static NSString *const cellID = @"cellPre";
 
                 if (isInCloud) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [YppLifeUtility showDetailTextHudInView:weakSelf.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试" duration:kYppShowHudDuration];
+                        [ZPickerUtility showHudWithTextInView:weakSelf.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
                     });
                 }
                 else {
@@ -369,7 +380,7 @@ static NSString *const cellID = @"cellPre";
                         if (assetNavigationController.selectedMaxCount &&
                                 weakSelf.selectedDataSource.count >= assetNavigationController.selectedMaxCount) {
                             NSString *text = [NSString stringWithFormat:@"最多选择%zd张图片", assetNavigationController.selectedMaxCount];
-                            [YppLifeUtility showTextHudInView:weakSelf.view animate:YES text:text duration:2.0];
+                            [ZPickerUtility showHudWithTextInView:weakSelf.view animate:YES text:text];
                             return;
                         }
 
@@ -403,11 +414,11 @@ static NSString *const cellID = @"cellPre";
         CGFloat viewY = SCREEN_HEIGHT - 50;
         _customBottomView = [[YppCustomBottomView alloc] initWithFrame:CGRectMake(0, viewY, SCREEN_WIDTH, 50) isShowPreButton:NO];
         
-        WS(weakSelf);
+        __weak typeof(self) weakSelf = self;
         [_customBottomView setConfirmSelectedImagesBlock:^(){
             if ([weakSelf.selectedDataSource count] == 0)
             {
-                [YppLifeUtility showSimpleAlertViewWithMessage:NSLocalizedString(@"You have not chosen images", nil)];
+                [ZPickerUtility showHudWithTextInView:weakSelf.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
                 return;
             }
             else {
@@ -464,8 +475,8 @@ static NSString *const cellID = @"cellPre";
         _sendBtn.layer.cornerRadius = 3;
         _sendBtn.layer.masksToBounds = YES;
         [_sendBtn setTitle:@"确定" forState:UIControlStateNormal];
-        _sendBtn.titleLabel.font = [YppLifeUtility getFontForDeviceSize];
-        [_sendBtn setTitleColor:YPPBlue forState:UIControlStateNormal];
+        _sendBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        [_sendBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [_sendBtn addTarget:self action:@selector(finishPickingAssetsForPreview:) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return _sendBtn;
@@ -485,8 +496,8 @@ static NSString *const cellID = @"cellPre";
 {
 	if (!_cropTipLabel){
         _cropTipLabel = [[UILabel alloc] init];
-        _cropTipLabel.text = NSLocalizedString(@"Select cutting can ensure good display effect more", @"选择裁切更能保证良好的显示效果");
-        _cropTipLabel.font = YPP_FONT(11.0f);
+        _cropTipLabel.text = @"选择裁切更能保证良好的显示效果";
+        _cropTipLabel.font = [UIFont systemFontOfSize:11];
         _cropTipLabel.textColor = [UIColor colorWithHexString:@"9b9b9b"];
 	}
 	return _cropTipLabel;

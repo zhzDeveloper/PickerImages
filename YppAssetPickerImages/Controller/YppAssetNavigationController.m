@@ -9,7 +9,6 @@
 #import "YppAssetNavigationController.h"
 #import "YppAssetCollectionListViewController.h"
 #import "YppAssetPickerViewController.h"
-#import "YppNavigationBar.h"
 
 @interface YppAssetNavigationController ()
 
@@ -49,16 +48,10 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-    
-    [self.navigationBar setBarTintColor:YPPBlue];
-    [self.view setBackgroundColor:YPPBlue];
-    
-    
+    [self.navigationBar setBarTintColor:[UIColor blueColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

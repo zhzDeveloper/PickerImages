@@ -20,14 +20,12 @@
 #import "YppPreviewAfterCropViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
-#import "UIViewController+CurrentViewController.h"
 #import "YppAssetVideoPreviewViewController.h"
-#import "UIImage+Compress.h"
-#import "YppIMService.h"
 #import "YppImageManager.h"
 #import <Masonry.h>
 #import "ZPickerUtility.h"
 #import "ZPickerHeader.h"
+#import <MBProgressHUD.h>
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -144,7 +142,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
     });
 
     //  获取"相机胶卷"的所有照片/视频
-    WS(weakSelf);
+    __weak typeof(self) weakSelf = self;
     [[YppImageManager manager] getCameraRollWithImagesType:self.assetNavigationController.isOnlyShowVideo ? ManagerAssetMediaTypeVideo : ManagerAssetMediaTypeImage completion:^(YppAssetCollectionViewModel *assetCollectionViewModel) {
         weakSelf.dataSource = assetCollectionViewModel.assetsArray;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -193,15 +191,14 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
         YppAssetViewModel *lastAsset = [selectedAssert lastObject];
         if (self.assetNavigationController.isCreateFeed) {
             //ypp发动态定制
-            WS(weakSelf);
-
+            __weak typeof(self) weakSelf = self;
             [[YppImageManager manager] getOriginalPhotoWithAsset:lastAsset.asset completion:^(UIImage *result, PHAsset *orginAsset, NSError *error, BOOL isDegraded, BOOL isInCloud) {
                 if (!isDegraded && result) {
-                    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:result];
-                    [createFeed setDone:^{
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
-                    }];
-                    [weakSelf.navigationController pushViewController:createFeed animated:YES];
+//                    CreateFeedViewController *createFeed = [[CreateFeedViewController alloc] initWithImage:result];
+//                    [createFeed setDone:^{
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:kYPP_NOTIFY_DONGTAI_CREATED object:nil];
+//                    }];
+//                    [weakSelf.navigationController pushViewController:createFeed animated:YES];
 
                 }
 
@@ -220,11 +217,11 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 
 - (void)finishPickingAssets {
     if ([self.selectedDataSource count] == 0) {
-        [YppLifeUtility showSimpleAlertViewWithMessage:NSLocalizedString(@"You have not chosen images", nil)];
+        [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"你还没选择图片"];
         return;
     }
 
-    WS(weakSelf);
+    __weak typeof(self) weakSelf = self;
     if (self.assetNavigationController.assetPickerType != YAssetPickerType_MultiChoose) {
         YppAssetViewModel *_Nonnull obj = self.selectedDataSource.lastObject;
 
@@ -244,13 +241,13 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
         BOOL isOrginImage = self.customBottomView.isAllSelectOrign;
         __block NSInteger currentSend = self.selectedDataSource.count;
         NSString *HUDText = [NSString stringWithFormat:@"%zd/%zd", currentSend, self.selectedDataSource.count];
-        [YppLifeUtility showHudWithTextInView:self.view animate:YES text:HUDText];
+        [ZPickerUtility showHudWithTextInView:self.view animate:YES text:HUDText];
 
         [self.selectedDataSource enumerateObjectsUsingBlock:^(YppAssetViewModel *obj, NSUInteger idx, BOOL *stop) {
 
             [[YppImageManager manager] getPhotoWithAsset:obj.asset photoWidth:isOrginImage ? 0 : SCREEN_WIDTH * 2.0 completion:^(UIImage *result, PHAsset *orginAsset, NSError *error, BOOL isDegraded, BOOL isInCloud) {
                 if (isInCloud) {
-                    [YppLifeUtility showTextHudInView:self.view animate:YES text:@"在iCloud中, 请先下载" duration:kYppShowHudDuration];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"在iCloud中, 请先下载"];
                 }
                 else if (!isDegraded && result) {
                     if ([self.assetNavigationController.pickerDelegate respondsToSelector:@selector(assetPickerController:didFinishPickingAssets:)]) {
@@ -259,7 +256,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 
                     currentSend--;
                     NSString *HUDText = [NSString stringWithFormat:@"%zd/%zd", currentSend, self.selectedDataSource.count];
-                    [YppLifeUtility showHudWithTextInView:self.view animate:YES text:HUDText];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:HUDText];
                     if (!currentSend) {
                         [self dismissViewControllerAnimated:YES completion:NULL];
                     }
@@ -303,13 +300,13 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
                                                                 dispatch_async(dispatch_get_main_queue(), ^{
 
                                                                     if (asset.duration >= 16.0f) {
-                                                                        [YppLifeUtility showTextHudInView:[UIApplication sharedApplication].keyWindow animate:YES text:@"拍摄视频不能大于视频15秒" duration:1.0f];
+                                                                        [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"拍摄视频不能大于视频15秒"];
                                                                         return;
                                                                     }
 
                                                                     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
                                                                         if (exportSession.status == AVAssetExportSessionStatusFailed) {
-                                                                            [YppLifeUtility showTextHudInView:[UIApplication sharedApplication].keyWindow animate:YES text:@"导出视频失败" duration:kYppShowHudDuration];
+                                                                            [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"导出视频失败"];
                                                                         } else if (exportSession.status == AVAssetExportSessionStatusCompleted) {
                                                                             if ([assetNavigationController.pickerDelegate respondsToSelector:@selector(assetPickerController:didSelectVideoAsset:)]) {
                                                                                 [assetNavigationController.pickerDelegate assetPickerController:assetNavigationController didSelectVideoAsset:tempFile];
@@ -402,7 +399,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 
 - (void)jumpToVideoPreviewViewController:(CGFloat)limitDuration model:(YppAssetViewModel *)model playerItem:(AVPlayerItem *)playerItem {
     if (model.asset.duration >= limitDuration) {
-        [YppLifeUtility showTextHudInView:self.view animate:YES text:@"请选择小于15秒的视频" duration:kYppShowHudDuration];
+        [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"请选择小于15秒的视频"];
     }
     else {
         YppAssetVideoPreviewViewController *assetVideoPreviewViewController = [[YppAssetVideoPreviewViewController alloc] initWithPlayerItem:playerItem];
@@ -450,8 +447,9 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
     }
     [cell configWithAsset:assetViewModel assetPickerType:self.assetNavigationController.assetPickerType indexPath:indexPath];
 
-    WS(weakSelf);
+
     // 拍照
+    __weak typeof(self) weakSelf= self;
     [cell setShowCameraBlock:^() {
 
         BOOL flag = [[YppImageManager manager] requestCameraStatus:^(BOOL hasAuthorization) {
@@ -474,7 +472,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 
             if (isInCloud) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [YppLifeUtility showDetailTextHudInView:weakSelf.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试" duration:kYppShowHudDuration];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
                 });
             }
             else {
@@ -482,7 +480,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
                     if (assetNavigationController.selectedMaxCount &&
                             weakSelf.selectedDataSource.count >= assetNavigationController.selectedMaxCount) {
                         NSString *text = [NSString stringWithFormat:@"最多选择%zd张图片", assetNavigationController.selectedMaxCount];
-                        [YppLifeUtility showTextHudInView:weakSelf.view animate:YES text:text duration:2.0];
+                        [ZPickerUtility showHudWithTextInView:self.view animate:YES text:text];
                         return;
                     }
 
@@ -514,7 +512,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    WS(weakSelf);
+    __weak typeof(self) weakSelf = self;
     NSIndexPath *index = [NSIndexPath indexPathForRow:(self.assetNavigationController.assetPickerType != YAssetPickerType_MultiChoose) ? indexPath.row - 1 : indexPath.row inSection:indexPath.section];
 
     YppAssetViewModel *model = self.dataSource[index.row];
@@ -524,7 +522,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
             dispatch_async(dispatch_get_main_queue(), ^{
 
                 if (isInCloud) {
-                    [YppLifeUtility showDetailTextHudInView:self.view animate:YES text:@"该视频尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试" duration:kYppShowHudDuration];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
                 }
                 else if (playerItem) {
                     [self jumpToVideoPreviewViewController:16.0f model:model playerItem:playerItem];
@@ -540,7 +538,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 
             if (isInCloud) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [YppLifeUtility showDetailTextHudInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试" duration:kYppShowHudDuration];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"该图片尚未从iCloud下载, 请在系统给相册中下载到本地后重新尝试"];
                 });
             }
             else if (self.assetNavigationController.isApplyAptitude || self.assetNavigationController.needEditToSquare) {
@@ -548,7 +546,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
                     if (self.assetNavigationController.isApplyAptitude) {
                         CGFloat cropY = (SCREEN_HEIGHT - 197 - 50) / 2.0;
                         CGFloat cropH = SCREEN_WIDTH / 1.53;
-                        CGRect frame = CGRectMake(0, cropY, MainWidth, cropH);
+                        CGRect frame = CGRectMake(0, cropY, SCREEN_WIDTH, cropH);
                         [weakSelf jumpToSLImageCropViewControllerForConstantImage:result
                                                                             frame:frame
                                                                      isFromCamera:NO];
@@ -586,9 +584,9 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
             }
             else {
                 if (weakSelf.assetNavigationController.isCreateFeed || weakSelf.assetNavigationController.isApplyAptitude) {
-                    CGFloat cropY = (SCREEN_HEIGHT - (weakSelf.assetNavigationController.isApplyAptitude ? 197 : MainWidth) - 50) / 2.0;
+                    CGFloat cropY = (SCREEN_HEIGHT - (weakSelf.assetNavigationController.isApplyAptitude ? 197 : SCREEN_WIDTH) - 50) / 2.0;
                     CGFloat cropH = SCREEN_WIDTH / 1.53;
-                    CGRect frame = CGRectMake(0, cropY, MainWidth, weakSelf.assetNavigationController.isApplyAptitude ? cropH : MainWidth);
+                    CGRect frame = CGRectMake(0, cropY, SCREEN_WIDTH, weakSelf.assetNavigationController.isApplyAptitude ? cropH : SCREEN_WIDTH);
                     [weakSelf jumpToSLImageCropViewControllerForConstantImage:rawImage
                                                                         frame:frame
                                                                  isFromCamera:YES];
@@ -603,7 +601,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
         }
         else if ([mediaType isEqualToString:@"public.movie"]) {
 
-            WS(weakSelf);
+            __weak typeof(self) weakSelf = self;
             [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
 
                 [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:[info objectForKey:UIImagePickerControllerMediaURL]];
@@ -625,7 +623,7 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
                     });
                 }
                 else {
-                    [YppLifeUtility showTextHudInView:self.view animate:YES text:@"拍照失败, 请重新拍摄" duration:kYppShowHudDuration];
+                    [ZPickerUtility showHudWithTextInView:self.view animate:YES text:@"拍照失败, 请重新拍摄"];
                 }
 
             }];
@@ -667,14 +665,11 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
         layout.minimumInteritemSpacing = minimumInteritemSpacing;
         layout.minimumLineSpacing = minimumInteritemSpacing;
         layout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5);
-
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-
         [_collectionView registerClass:[YppAssetCollectionViewCell class] forCellWithReuseIdentifier:cellID];
-
     }
     return _collectionView;
 }
@@ -682,16 +677,13 @@ static CGFloat const minimumInteritemSpacing = 5.0f;
 - (YppCustomBottomView *)customBottomView {
     if (!_customBottomView) {
         _customBottomView = [[YppCustomBottomView alloc] initWithFrame:CGRectZero isShowPreButton:YES];
-
-        WS(weakSelf);
+        __weak typeof(self) weakSelf = self;
         [_customBottomView setPreviewImagesBlock:^() {
             [weakSelf jumpToImagePreviewViewController:[NSIndexPath indexPathForRow:0 inSection:0] isShowAllAssets:NO];
         }];
-
         [_customBottomView setConfirmSelectedImagesBlock:^() {
             [weakSelf finishPickingAssetsFromPreview:[weakSelf.selectedDataSource mutableCopy]];
         }];
-
     }
     return _customBottomView;
 }
